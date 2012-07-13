@@ -1,24 +1,26 @@
-package net.minecraft.src;
+package net.minecraft.TradeToulonais;
 
 import java.io.*;
 import java.util.ArrayList;
 
-public class MerchantRecipeList extends ArrayList
+import net.minecraft.src.*;
+
+public class MerchantRecipeListToulonais extends ArrayList
 {
-    public MerchantRecipeList()
+    public MerchantRecipeListToulonais()
     {
     }
 
-    public MerchantRecipeList(NBTTagCompound par1NBTTagCompound)
+    public MerchantRecipeListToulonais(NBTTagCompound par1NBTTagCompound)
     {
         func_57495_a(par1NBTTagCompound);
     }
 
-    public MerchantRecipe func_57493_a(ItemStack par1ItemStack, ItemStack par2ItemStack, int par3)
+    public MerchantRecipeToulonais func_57493_a(ItemStack par1ItemStack, ItemStack par2ItemStack, int par3)
     {
         if (par3 > 0 && par3 < size())
         {
-            MerchantRecipe merchantrecipe = (MerchantRecipe)get(par3);
+            MerchantRecipeToulonais merchantrecipe = (MerchantRecipeToulonais)get(par3);
 
             if (par1ItemStack.itemID == merchantrecipe.func_57067_a().itemID && (par2ItemStack == null && !merchantrecipe.func_57070_c() || merchantrecipe.func_57070_c() && par2ItemStack != null && merchantrecipe.func_57065_b().itemID == par2ItemStack.itemID))
             {
@@ -35,7 +37,7 @@ public class MerchantRecipeList extends ArrayList
 
         for (int i = 0; i < size(); i++)
         {
-            MerchantRecipe merchantrecipe1 = (MerchantRecipe)get(i);
+            MerchantRecipeToulonais merchantrecipe1 = (MerchantRecipeToulonais)get(i);
 
             if (par1ItemStack.itemID == merchantrecipe1.func_57067_a().itemID && par1ItemStack.stackSize >= merchantrecipe1.func_57067_a().stackSize && (!merchantrecipe1.func_57070_c() && par2ItemStack == null || merchantrecipe1.func_57070_c() && par2ItemStack != null && merchantrecipe1.func_57065_b().itemID == par2ItemStack.itemID && par2ItemStack.stackSize >= merchantrecipe1.func_57065_b().stackSize))
             {
@@ -46,11 +48,11 @@ public class MerchantRecipeList extends ArrayList
         return null;
     }
 
-    public void func_57494_a(MerchantRecipe par1MerchantRecipe)
+    public void func_57494_a(MerchantRecipeToulonais par1MerchantRecipe)
     {
         for (int i = 0; i < size(); i++)
         {
-            MerchantRecipe merchantrecipe = (MerchantRecipe)get(i);
+            MerchantRecipeToulonais merchantrecipe = (MerchantRecipeToulonais)get(i);
 
             if (par1MerchantRecipe.func_57064_a(merchantrecipe))
             {
@@ -72,7 +74,7 @@ public class MerchantRecipeList extends ArrayList
 
         for (int i = 0; i < size(); i++)
         {
-            MerchantRecipe merchantrecipe = (MerchantRecipe)get(i);
+            MerchantRecipeToulonais merchantrecipe = (MerchantRecipeToulonais)get(i);
             Packet.writeItemStack(merchantrecipe.func_57067_a(), par1DataOutputStream);
             Packet.writeItemStack(merchantrecipe.func_57071_d(), par1DataOutputStream);
             ItemStack itemstack = merchantrecipe.func_57065_b();
@@ -85,9 +87,9 @@ public class MerchantRecipeList extends ArrayList
         }
     }
 
-    public static MerchantRecipeList func_57492_a(DataInputStream par0DataInputStream) throws IOException
+    public static MerchantRecipeListToulonais func_57492_a(DataInputStream par0DataInputStream) throws IOException
     {
-        MerchantRecipeList merchantrecipelist = new MerchantRecipeList();
+        MerchantRecipeListToulonais merchantrecipelist = new MerchantRecipeListToulonais();
         int i = par0DataInputStream.readByte() & 0xff;
 
         for (int j = 0; j < i; j++)
@@ -101,7 +103,7 @@ public class MerchantRecipeList extends ArrayList
                 itemstack2 = Packet.readItemStack(par0DataInputStream);
             }
 
-            merchantrecipelist.add(new MerchantRecipe(itemstack, itemstack2, itemstack1));
+            merchantrecipelist.add(new MerchantRecipeToulonais(itemstack, itemstack2, itemstack1));
         }
 
         return merchantrecipelist;
@@ -114,7 +116,7 @@ public class MerchantRecipeList extends ArrayList
         for (int i = 0; i < nbttaglist.tagCount(); i++)
         {
             NBTTagCompound nbttagcompound = (NBTTagCompound)nbttaglist.tagAt(i);
-            add(new MerchantRecipe(nbttagcompound));
+            add(new MerchantRecipeToulonais(nbttagcompound));
         }
     }
 
@@ -125,7 +127,7 @@ public class MerchantRecipeList extends ArrayList
 
         for (int i = 0; i < size(); i++)
         {
-            MerchantRecipe merchantrecipe = (MerchantRecipe)get(i);
+            MerchantRecipeToulonais merchantrecipe = (MerchantRecipeToulonais)get(i);
             nbttaglist.appendTag(merchantrecipe.func_57066_e());
         }
 

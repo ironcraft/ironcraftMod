@@ -1,30 +1,32 @@
-package net.minecraft.src;
+package net.minecraft.TradeToulonais;
 
-public class MerchantRecipe
+import net.minecraft.src.*;
+
+public class MerchantRecipeToulonais
 {
     private ItemStack field_57074_a;
     private ItemStack field_57072_b;
     private ItemStack field_57073_c;
     private int field_58119_d;
 
-    public MerchantRecipe(NBTTagCompound par1NBTTagCompound)
+    public MerchantRecipeToulonais(NBTTagCompound par1NBTTagCompound)
     {
         func_57068_a(par1NBTTagCompound);
     }
 
-    public MerchantRecipe(ItemStack par1ItemStack, ItemStack par2ItemStack, ItemStack par3ItemStack)
+    public MerchantRecipeToulonais(ItemStack par1ItemStack, ItemStack par2ItemStack, ItemStack par3ItemStack)
     {
         field_57074_a = par1ItemStack;
         field_57072_b = par2ItemStack;
         field_57073_c = par3ItemStack;
     }
 
-    public MerchantRecipe(ItemStack par1ItemStack, ItemStack par2ItemStack)
+    public MerchantRecipeToulonais(ItemStack par1ItemStack, ItemStack par2ItemStack)
     {
         this(par1ItemStack, null, par2ItemStack);
     }
 
-    public MerchantRecipe(ItemStack par1ItemStack, Item par2Item)
+    public MerchantRecipeToulonais(ItemStack par1ItemStack, Item par2Item)
     {
         this(par1ItemStack, new ItemStack(par2Item));
     }
@@ -49,7 +51,7 @@ public class MerchantRecipe
         return field_57073_c;
     }
 
-    public boolean func_57064_a(MerchantRecipe par1MerchantRecipe)
+    public boolean func_57064_a(MerchantRecipeToulonais par1MerchantRecipe)
     {
         if (field_57074_a.itemID != par1MerchantRecipe.field_57074_a.itemID || field_57073_c.itemID != par1MerchantRecipe.field_57073_c.itemID)
         {
@@ -61,7 +63,7 @@ public class MerchantRecipe
         }
     }
 
-    public boolean func_57069_b(MerchantRecipe par1MerchantRecipe)
+    public boolean func_57069_b(MerchantRecipeToulonais par1MerchantRecipe)
     {
         return func_57064_a(par1MerchantRecipe) && (field_57074_a.stackSize < par1MerchantRecipe.field_57074_a.stackSize || field_57072_b != null && field_57072_b.stackSize < par1MerchantRecipe.field_57072_b.stackSize);
     }

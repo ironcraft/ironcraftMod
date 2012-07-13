@@ -4,21 +4,25 @@ import java.util.*;
 
 import net.minecraft.TradeToulonais.EntityAIFollowGolemToulonais;
 import net.minecraft.TradeToulonais.EntityAILookAtTradePlayerToulonais;
+import net.minecraft.TradeToulonais.EntityAIPlayToulonais;
 import net.minecraft.TradeToulonais.EntityAITradePlayerToulonais;
 import net.minecraft.TradeToulonais.EntityAIVillagerMateToulonais;
+import net.minecraft.TradeToulonais.IMerchantToulonais;
+import net.minecraft.TradeToulonais.MerchantRecipeListToulonais;
+import net.minecraft.TradeToulonais.MerchantRecipeToulonais;
 
-public class EntityToulonais extends EntityAgeable implements IMerchant, INpc
+public class EntityToulonais extends EntityAgeable implements IMerchantToulonais, INpc
 {
     private int randomTickDivider;
     private boolean isMatingFlag;
     private boolean isPlayingFlag;
     Village villageObj;
     private EntityPlayer field_56234_e;
-    private MerchantRecipeList field_56232_f;
+    private MerchantRecipeListToulonais field_56232_f;
     private int field_58023_g;
     private boolean field_58024_as;
     private int field_56236_as;
-    private MerchantRecipe field_58025_au;
+    private MerchantRecipeToulonais field_58025_au;
     private static final Map field_56235_at;
     private static final Map field_56237_au;
 
@@ -26,10 +30,7 @@ public class EntityToulonais extends EntityAgeable implements IMerchant, INpc
     {
         this(par1World, 0);
     }
-/*
-@Autor : MysterHyde
-EntityToulonais (futur villagoie)
-*/
+
     public EntityToulonais(World par1World, int par2)
     {
         super(par1World);
@@ -38,7 +39,7 @@ EntityToulonais (futur villagoie)
         isPlayingFlag = false;
         villageObj = null;
         setProfession(par2);
-        texture = "/mob/villager/villager.png";
+        texture = "/toulonais.png";
         moveSpeed = 0.5F;
         getNavigator().setBreakDoors(true);
         getNavigator().setAvoidsWater(true);
@@ -114,17 +115,17 @@ EntityToulonais (futur villagoie)
         super.updateAITick();
     }
 
-    /**
+    /**z
      * Called when a player interacts with a mob. e.g. gets milk from a cow, gets into the saddle on a pig.
      */
     public boolean interact(EntityPlayer par1EntityPlayer)
     {
-        if (!func_56227_A() && !isChild())
+        if (!isChild())
         {
             if (!worldObj.isRemote)
             {
-                func_56218_c_(par1EntityPlayer);
-                par1EntityPlayer.func_56241_a(this);
+                func_56218_c_(par1EntityPlayer);     
+                par1EntityPlayer.func_56241_a2(this);
             }
 
             return true;
@@ -135,7 +136,8 @@ EntityToulonais (futur villagoie)
         }
     }
 
-    protected void entityInit()
+
+	protected void entityInit()
     {
         super.entityInit();
         dataWatcher.addObject(16, Integer.valueOf(0));
@@ -173,7 +175,7 @@ EntityToulonais (futur villagoie)
         if (par1NBTTagCompound.hasKey("Offers"))
         {
             NBTTagCompound nbttagcompound = par1NBTTagCompound.getCompoundTag("Offers");
-            field_56232_f = new MerchantRecipeList(nbttagcompound);
+            field_56232_f = new MerchantRecipeListToulonais(nbttagcompound);
         }
     }
 
@@ -185,19 +187,19 @@ EntityToulonais (futur villagoie)
         switch (getProfession())
         {
             case 0:
-                return "/mob/villager/farmer.png";
+                return "/toulonais.png";
 
             case 1:
-                return "/mob/villager/librarian.png";
+                return "/toulonais.png";
 
             case 2:
-                return "/mob/villager/priest.png";
+                return "/toulonais.png";
 
             case 3:
-                return "/mob/villager/smith.png";
+                return "/toulonais.png";
 
             case 4:
-                return "/mob/villager/butcher.png";
+                return "/toulonais.png";
         }
 
         return super.getTexture();
@@ -289,12 +291,15 @@ EntityToulonais (futur villagoie)
     {
         return field_56234_e != null;
     }
-
-    public void func_56219_a(MerchantRecipe par1MerchantRecipe)
+    public boolean func_56227_A2()
+    {
+        return field_56234_e != null;
+    }
+    public void func_56219_a(MerchantRecipeToulonais par1MerchantRecipe)
     {
         par1MerchantRecipe.func_58118_f();
 
-        if (par1MerchantRecipe.func_57064_a((MerchantRecipe)field_56232_f.get(field_56232_f.size() - 1)))
+        if (par1MerchantRecipe.func_57064_a((MerchantRecipeToulonais)field_56232_f.get(field_56232_f.size() - 1)))
         {
             field_58023_g = 60;
             field_58024_as = true;
@@ -316,7 +321,7 @@ EntityToulonais (futur villagoie)
         }
     }
 
-    public MerchantRecipeList func_56220_b(EntityPlayer par1EntityPlayer)
+    public MerchantRecipeListToulonais func_56220_b(EntityPlayer par1EntityPlayer)
     {
         if (field_56232_f == null)
         {
@@ -328,7 +333,7 @@ EntityToulonais (futur villagoie)
 
     private void func_56231_i(int par1)
     {
-        MerchantRecipeList merchantrecipelist = new MerchantRecipeList();
+        MerchantRecipeListToulonais merchantrecipelist = new MerchantRecipeListToulonais();
 
         switch (getProfession())
         {
@@ -439,24 +444,24 @@ EntityToulonais (futur villagoie)
 
         if (field_56232_f == null)
         {
-            field_56232_f = new MerchantRecipeList();
+            field_56232_f = new MerchantRecipeListToulonais();
         }
 
         for (int i = 0; i < par1 && i < merchantrecipelist.size(); i++)
         {
-            field_56232_f.func_57494_a((MerchantRecipe)merchantrecipelist.get(i));
+            field_56232_f.func_57494_a((MerchantRecipeToulonais)merchantrecipelist.get(i));
         }
     }
 
-    public void func_56217_a(MerchantRecipeList merchantrecipelist)
+    public void func_56217_a(MerchantRecipeListToulonais merchantrecipelist)
     {
     }
 
-    private static void func_56225_a(MerchantRecipeList par0MerchantRecipeList, int par1, Random par2Random, float par3)
+    private static void func_56225_a(MerchantRecipeListToulonais par0MerchantRecipeList, int par1, Random par2Random, float par3)
     {
         if (par2Random.nextFloat() < par3)
         {
-            par0MerchantRecipeList.add(new MerchantRecipe(func_56230_a(par1, par2Random), Item.diamond));
+            par0MerchantRecipeList.add(new MerchantRecipeToulonais(func_56230_a(par1, par2Random), Item.diamond));
         }
     }
 
@@ -484,7 +489,7 @@ EntityToulonais (futur villagoie)
         }
     }
 
-    private static void func_56229_b(MerchantRecipeList par0MerchantRecipeList, int par1, Random par2Random, float par3)
+    private static void func_56229_b(MerchantRecipeListToulonais par0MerchantRecipeList, int par1, Random par2Random, float par3)
     {
         if (par2Random.nextFloat() < par3)
         {
@@ -503,7 +508,7 @@ EntityToulonais (futur villagoie)
                 itemstack1 = new ItemStack(par1, 1, 0);
             }
 
-            par0MerchantRecipeList.add(new MerchantRecipe(itemstack, itemstack1));
+            par0MerchantRecipeList.add(new MerchantRecipeToulonais(itemstack, itemstack1));
         }
     }
 

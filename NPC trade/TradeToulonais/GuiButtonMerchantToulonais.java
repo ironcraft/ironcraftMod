@@ -1,13 +1,15 @@
-package net.minecraft.src;
+package net.minecraft.TradeToulonais;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.src.GuiButton;
+
 import org.lwjgl.opengl.GL11;
 
-class GuiButtonMerchant extends GuiButton
+class GuiButtonMerchantToulonais extends GuiButton
 {
     private final boolean field_56463_j;
 
-    public GuiButtonMerchant(int par1, int par2, int par3, boolean par4)
+    public GuiButtonMerchantToulonais(int par1, int par2, int par3, boolean par4)
     {
         super(par1, par2, par3, 12, 19, "");
         field_56463_j = par4;
@@ -23,7 +25,7 @@ class GuiButtonMerchant extends GuiButton
             return;
         }
 
-        GL11.glBindTexture(GL11.GL_TEXTURE_2D, par1Minecraft.renderEngine.getTexture("/gui/trading.png"));
+        GL11.glBindTexture(GL11.GL_TEXTURE_2D, par1Minecraft.renderEngine.getTexture("/gui/tradingWithToulonais.png"));
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         boolean flag = par2 >= xPosition && par3 >= yPosition && par2 < xPosition + field_52008_a && par3 < yPosition + field_52007_b;
         int i = 0;

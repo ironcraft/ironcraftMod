@@ -1,14 +1,16 @@
-package net.minecraft.src;
+package net.minecraft.TradeToulonais;
 
-public class InventoryMerchant implements IInventory
+import net.minecraft.src.*;
+
+public class InventoryMerchantToulonais implements IInventory
 {
-    private final IMerchant field_56197_a;
+    private final IMerchantToulonais field_56197_a;
     private ItemStack field_56195_b[];
     private final EntityPlayer field_56196_c;
-    private MerchantRecipe field_56193_d;
+    private MerchantRecipeToulonais field_56193_d;
     private int field_56194_e;
 
-    public InventoryMerchant(EntityPlayer par1EntityPlayer, IMerchant par2IMerchant)
+    public InventoryMerchantToulonais(EntityPlayer par1EntityPlayer, IMerchantToulonais par2IMerchant)
     {
         field_56195_b = new ItemStack[3];
         field_56196_c = par1EntityPlayer;
@@ -179,11 +181,11 @@ public class InventoryMerchant implements IInventory
         }
         else
         {
-            MerchantRecipeList merchantrecipelist = field_56197_a.func_56220_b(field_56196_c);
+            MerchantRecipeListToulonais merchantrecipelist = field_56197_a.func_56220_b(field_56196_c);
 
             if (merchantrecipelist != null)
             {
-                MerchantRecipe merchantrecipe = merchantrecipelist.func_57493_a(itemstack, itemstack1, field_56194_e);
+                MerchantRecipeToulonais merchantrecipe = merchantrecipelist.func_57493_a(itemstack, itemstack1, field_56194_e);
 
                 if (merchantrecipe != null)
                 {
@@ -192,7 +194,7 @@ public class InventoryMerchant implements IInventory
                 }
                 else if (itemstack1 != null)
                 {
-                    MerchantRecipe merchantrecipe1 = merchantrecipelist.func_57493_a(itemstack1, itemstack, field_56194_e);
+                    MerchantRecipeToulonais merchantrecipe1 = merchantrecipelist.func_57493_a(itemstack1, itemstack, field_56194_e);
 
                     if (merchantrecipe1 != null)
                     {
@@ -212,7 +214,7 @@ public class InventoryMerchant implements IInventory
         }
     }
 
-    public MerchantRecipe func_56192_h()
+    public MerchantRecipeToulonais func_56192_h()
     {
         return field_56193_d;
     }
