@@ -1,7 +1,10 @@
 package net.minecraft.TradeToulonais;
 
 import net.minecraft.src.*;
-
+/*@autor : MysterHyde
+ * Class :InventoryMerchantToulonais
+ * note : non terminé
+ */
 public class InventoryMerchantToulonais implements IInventory
 {
     private final IMerchantToulonais field_56197_a;

@@ -377,9 +377,13 @@ public class EntityPlayerSP extends EntityPlayer
     {
         mc.displayGuiScreen(new GuiDispenser(inventory, par1TileEntityDispenser));
     }
-    public void func_56241_a2(IMerchantToulonais par1IMerchant)
+    /*@autor : MysterHyde
+     * methode :func_56241_a2
+     * @see net.minecraft.src.EntityPlayer#func_56241_a2(net.minecraft.TradeToulonais.IMerchantToulonais)
+     */
+    public void func_56241_a2(IMerchantToulonais par1IMerchant2)
     {
-        mc.displayGuiScreen(new GuiMerchantToulonais(inventory, par1IMerchant, worldObj));
+        mc.displayGuiScreen(new GuiMerchantToulonais(inventory, par1IMerchant2, worldObj)); // On ouvre l'interface de trade des nouveau npc
     }
     public void func_56241_a(IMerchant par1IMerchant)
     {

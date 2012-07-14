@@ -4,7 +4,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.src.GuiButton;
 
 import org.lwjgl.opengl.GL11;
-
+/*@autor : MysterHyde
+ * Class :GuiButtonMerchantToulonais
+ * note : terminé
+ */
 class GuiButtonMerchantToulonais extends GuiButton
 {
     private final boolean field_56463_j;

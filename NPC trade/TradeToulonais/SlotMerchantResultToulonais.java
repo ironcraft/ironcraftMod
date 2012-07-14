@@ -1,7 +1,10 @@
 package net.minecraft.TradeToulonais;
 
 import net.minecraft.src.*;
-
+/*@autor : MysterHyde
+ * Class :SlotMerchantResultToulonais
+ * note : terminé
+ */
 public class SlotMerchantResultToulonais extends Slot
 {
     private final InventoryMerchantToulonais field_57193_a;

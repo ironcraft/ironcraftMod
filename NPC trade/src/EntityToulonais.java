@@ -10,13 +10,17 @@ import net.minecraft.TradeToulonais.EntityAIVillagerMateToulonais;
 import net.minecraft.TradeToulonais.IMerchantToulonais;
 import net.minecraft.TradeToulonais.MerchantRecipeListToulonais;
 import net.minecraft.TradeToulonais.MerchantRecipeToulonais;
-
+/*@autor : MysterHyde
+ * Class :EntityToulonais
+ * @see net.minecraft.src.EntityPlayer#func_56241_a2(net.minecraft.TradeToulonais.IMerchantToulonais)
+ * note : Non terminé
+ */
 public class EntityToulonais extends EntityAgeable implements IMerchantToulonais, INpc
 {
     private int randomTickDivider;
     private boolean isMatingFlag;
     private boolean isPlayingFlag;
-    Village villageObj;
+    Village villageObj;  // a changer pour new City
     private EntityPlayer field_56234_e;
     private MerchantRecipeListToulonais field_56232_f;
     private int field_58023_g;

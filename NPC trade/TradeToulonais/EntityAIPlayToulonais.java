@@ -3,7 +3,10 @@ package net.minecraft.TradeToulonais;
 import java.util.*;
 
 import net.minecraft.src.*;
-
+/*@autor : MysterHyde
+ * Class :EntityAIPlayToulonais
+ * note : terminé
+ */
 public class EntityAIPlayToulonais extends EntityAIBase
 {
     private EntityToulonais villagerObj;

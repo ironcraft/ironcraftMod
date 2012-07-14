@@ -1,6 +1,10 @@
 package net.minecraft.TradeToulonais;
 
 import java.util.*;
+/*@autor : MysterHyde
+ * Class :ContainerMerchantToulonais
+ * note : terminé
+ */
 import net.minecraft.src.*;
 public class EntityAIFollowGolemToulonais extends EntityAIBase
 {

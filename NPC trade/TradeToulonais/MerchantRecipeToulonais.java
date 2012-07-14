@@ -1,7 +1,10 @@
 package net.minecraft.TradeToulonais;
 
 import net.minecraft.src.*;
-
+/*@autor : MysterHyde
+ * Class :MerchantRecipeToulonais
+ * @see net.minecraft.src.EntityPlayer#func_56241_a2(net.minecraft.TradeToulonais.IMerchantToulonais)
+ */
 public class MerchantRecipeToulonais
 {
     private ItemStack field_57074_a;

@@ -1,7 +1,10 @@
 package net.minecraft.TradeToulonais;
 
 import net.minecraft.src.*;
-
+/*@autor : MysterHyde
+ * Class :NpcMerchantToulonais
+ * @see net.minecraft.src.EntityPlayer#func_56241_a2(net.minecraft.TradeToulonais.IMerchantToulonais)
+ */
 public class NpcMerchantToulonais implements IMerchantToulonais
 {
     private InventoryMerchantToulonais field_56224_a;

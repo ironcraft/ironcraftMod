@@ -4,7 +4,10 @@ import java.io.*;
 import java.util.ArrayList;
 
 import net.minecraft.src.*;
-
+/*@autor : MysterHyde
+ * Class :MerchantRecipeListToulonais
+ * note : non terminé
+ */
 public class MerchantRecipeListToulonais extends ArrayList
 {
     public MerchantRecipeListToulonais()

@@ -1,6 +1,10 @@
 package net.minecraft.TradeToulonais;
 
 import java.util.Random;
+/*@autor : MysterHyde
+ * Class :EntityAITradePlayerToulonais
+ * note : terminé
+ */
 import net.minecraft.src.*;
 public class EntityAIVillagerMateToulonais extends EntityAIBase
 {

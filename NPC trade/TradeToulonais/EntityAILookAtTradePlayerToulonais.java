@@ -1,5 +1,9 @@
 package net.minecraft.TradeToulonais;
 import net.minecraft.src.*;
+/*@autor : MysterHyde
+ * Class :EntityAILookAtTradePlayerToulonais
+ * note : terminé
+ */
 public class EntityAILookAtTradePlayerToulonais extends EntityAIBase
 {
     private EntityToulonais field_56834_a;

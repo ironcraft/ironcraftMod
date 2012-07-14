@@ -3,7 +3,10 @@ package net.minecraft.TradeToulonais;
 import java.util.List;
 
 import net.minecraft.src.*;
-
+/*@autor : MysterHyde
+ * Class :ContainerMerchantToulonais
+ * note : terminé
+ */
 public class ContainerMerchantToulonais extends Container
 {
     private IMerchantToulonais field_56987_a;

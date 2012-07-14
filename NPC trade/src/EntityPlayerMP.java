@@ -591,15 +591,19 @@ public class EntityPlayerMP extends EntityPlayer implements ICrafting
             }
         }
     }
-    public void func_56241_a2(IMerchantToulonais par1IMerchant)
+    /*@autor : MysterHyde
+     * methode :func_56241_a2
+     * @see net.minecraft.src.EntityPlayer#func_56241_a2(net.minecraft.TradeToulonais.IMerchantToulonais)
+     */
+    public void func_56241_a2(IMerchantToulonais par1IMerchant2)
     {
         func_56252_bn();
-        craftingInventory = new ContainerMerchantToulonais(inventory, par1IMerchant, worldObj);
+        craftingInventory = new ContainerMerchantToulonais(inventory, par1IMerchant2, worldObj);
         craftingInventory.windowId = field_56269_cx;
         craftingInventory.func_56981_a(this);
         InventoryMerchantToulonais inventorymerchant = ((ContainerMerchantToulonais)craftingInventory).func_56983_c();
-        field_56268_a.func_56717_b(new Packet100OpenWindow(field_56269_cx, 6, inventorymerchant.getInvName(), inventorymerchant.getSizeInventory()));
-        MerchantRecipeListToulonais merchantrecipelist = par1IMerchant.func_56220_b(this);
+        field_56268_a.func_56717_b(new Packet100OpenWindow(field_56269_cx, 7, inventorymerchant.getInvName(), inventorymerchant.getSizeInventory())); // switch 7 pour le paque HandleWindow
+        MerchantRecipeListToulonais merchantrecipelist = par1IMerchant2.func_56220_b(this);
 
         if (merchantrecipelist != null)
         {

@@ -8,7 +8,10 @@ import net.minecraft.src.*;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
-
+/*@autor : MysterHyde
+ * Class :GuiMerchantToulonais
+ * note : non terminé
+ */
 public class GuiMerchantToulonais extends GuiContainer
 {
     private IMerchantToulonais field_56488_h;

@@ -1,7 +1,10 @@
 package net.minecraft.TradeToulonais;
 
 import net.minecraft.src.*;
-
+/*@autor : MysterHyde
+ * Interface :IMerchantToulonais
+ * note : non terminé
+ */
 public interface IMerchantToulonais
 {
     public abstract void func_56218_c_(EntityPlayer entityplayer);
